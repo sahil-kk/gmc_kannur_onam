@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAdmin() {
+      return request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /config/draw {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /entries/{entryId} {
+      allow get: if true; // Allows anyone with the ID to listen for updates (for receipt generation)
+      allow list: if isAdmin();
+      allow write: if isAdmin(); // Clients cannot write directly, only Cloud Functions can
+    }
+    
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // Add admins manually via Firebase Console
+    }
+  }
+}
