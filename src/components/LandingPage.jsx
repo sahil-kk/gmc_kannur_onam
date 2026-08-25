@@ -30,73 +30,123 @@ function LandingPage() {
       <WinnerBanner />
       
       {/* NAVBAR */}
-      <nav style={{
-        background: isScrolled ? 'rgba(255, 248, 232, 0.94)' : 'transparent',
-        borderBottom: isScrolled ? '1px solid rgba(7, 91, 53, 0.1)' : 'none',
-        transition: 'all 0.3s ease'
-      }}>
-        <div className="logo">
-          <img src="/favicon.png" alt="logo" className="w-10 h-10 object-contain" />
-          Onam Lucky Draw
+      <nav 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out px-6 lg:px-16 flex items-center justify-between ${
+          isScrolled ? 'h-20 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'h-24 bg-transparent'
+        }`}
+      >
+        {/* LOGO */}
+        <a href="#" className="flex items-center hover:scale-105 transition-transform duration-300 z-50">
+          <img 
+            src="/favicon.png" 
+            alt="Logo" 
+            className="w-12 h-12 object-contain filter drop-shadow-md"
+          />
+        </a>
+        
+        {/* DESKTOP LINKS */}
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#prizes" className={`font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
+            Prizes
+          </a>
+          <a href="#how" className={`font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
+            How it Works
+          </a>
+          <a href="#join" className="bg-[var(--gold)] text-[#3a2500] px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#ffd878] hover:scale-105 transition-all shadow-md">
+            Join Draw
+          </a>
         </div>
         
-        {/* Desktop Nav Links */}
-        <div className="nav-links hidden md:flex items-center gap-7">
-          <a href="#prizes">Prizes</a>
-          <a href="#how">How it Works</a>
-          <a href="#join" className="nav-btn">Join Draw</a>
-        </div>
-        
-        {/* Mobile Burger Menu Button */}
+        {/* MOBILE BURGER */}
         <button 
-          className="md:hidden p-2 text-[var(--green)] z-50"
+          className={`md:hidden p-2 rounded-full transition-colors z-50 ${
+            isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMobileMenuOpen ? <X size={26} className={isScrolled ? "" : "text-gray-800"} /> : <Menu size={26} />}
         </button>
 
-        {/* Mobile Menu Overlay */}
+        {/* MOBILE MENU OVERLAY */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="absolute top-full left-0 w-full bg-[var(--cream)] border-b border-[var(--green)]/10 shadow-lg md:hidden flex flex-col items-center py-6 gap-6 z-40"
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-0 left-0 w-full bg-white shadow-2xl flex flex-col items-center pt-24 pb-10 gap-6 z-40 border-b-4 border-[var(--gold)]"
             >
-              <a href="#prizes" onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text)] font-semibold text-lg">Prizes</a>
-              <a href="#how" onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text)] font-semibold text-lg">How it Works</a>
-              <a href="#join" onClick={() => setIsMobileMenuOpen(false)} className="bg-[var(--green)] text-white px-6 py-3 rounded-full font-bold">Join Draw</a>
+              <a href="#prizes" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl uppercase tracking-wider">
+                Prizes
+              </a>
+              <a href="#how" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl uppercase tracking-wider">
+                How it Works
+              </a>
+              <a href="#join" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[var(--gold)] text-[#3a2500] px-8 py-3.5 rounded-full font-extrabold text-lg uppercase tracking-wider shadow-lg">
+                Join Draw
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
 
       {/* HERO */}
-      <section className="hero relative overflow-hidden" style={{ 
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        paddingBottom: '80px',
-        gridTemplateColumns: '1fr', // Override the grid template from CSS
-        background: 'transparent'
+      <section className="relative overflow-hidden w-full min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 pb-16 px-6 lg:px-16" style={{
+        backgroundImage: `
+          radial-gradient(rgba(0, 0, 0, 0.25) 1.5px, transparent 1.5px),
+          radial-gradient(circle at center, #7A161E 0%, #3B0A0E 70%, #240407 100%)
+        `,
+        backgroundSize: '6px 6px, 100% 100%'
       }}>
-        <motion.div 
-          className="absolute inset-0 z-0"
-          style={{ 
-            backgroundImage: 'url(/hero.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            y: yHeroBg 
-          }}
-        />
-        <motion.a 
-          href="#join" 
-          className="primary-btn relative z-10" 
-          style={{ fontSize: '1.3rem', padding: '18px 40px', boxShadow: '0 10px 25px rgba(0,0,0,0.6)', y: yHeroContent }}
-        >
-          Enter the Lucky Draw →
-        </motion.a>
+        <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-20 relative z-10">
+          
+          {/* LEFT SIDE: Text */}
+          <motion.div 
+            className="flex flex-col items-center md:items-start text-center md:text-left text-white order-2 md:order-1"
+            style={{ y: yHeroContent }}
+          >
+            <div className="flex flex-col items-center md:items-start mb-8">
+              <span className="font-['Great_Vibes'] text-6xl md:text-8xl text-[#ffd878] drop-shadow-xl transform -rotate-3 mb-[-15px] md:mb-[-30px] md:ml-8 z-10">
+                Happy
+              </span>
+              <span className="font-['Cinzel'] text-7xl md:text-[110px] lg:text-[140px] font-extrabold leading-none tracking-tight text-white drop-shadow-2xl">
+                ONAM
+              </span>
+            </div>
+            
+            <p className="text-lg md:text-2xl text-white/95 mb-10 max-w-lg font-light leading-relaxed drop-shadow-md">
+              Celebrate the festival of joy, prosperity, and togetherness. Enter now for a chance to win spectacular prizes!
+            </p>
+            
+            <a href="#join" className="primary-btn inline-block hover:scale-105" style={{ 
+              fontSize: '1.2rem', 
+              padding: '18px 45px', 
+              boxShadow: '0 15px 35px rgba(0,0,0,0.35)',
+              background: '#ffd878', // light gold
+              color: '#3a2500', // dark rich text
+              border: 'none'
+            }}>
+              Enter the Lucky Draw →
+            </a>
+          </motion.div>
+          
+          {/* RIGHT SIDE: Image */}
+          <motion.div 
+            className="relative flex justify-center items-center order-1 md:order-2 w-full max-w-[450px] lg:max-w-[650px] mx-auto"
+            style={{ y: yHeroBg }}
+          >
+            {/* Glow effect behind the image */}
+            <div className="absolute inset-0 bg-[#ffd878]/30 blur-[100px] rounded-full scale-125"></div>
+            
+            <img 
+              src="/hero-right.webp" 
+              alt="Onam Celebration" 
+              className="relative z-10 w-full h-auto object-contain drop-shadow-2xl" 
+            />
+          </motion.div>
+          
+        </div>
       </section>
 
       {/* COUNTDOWN */}
