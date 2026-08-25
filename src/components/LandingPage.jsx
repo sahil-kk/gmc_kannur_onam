@@ -1,14 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import EntryForm from './EntryForm';
 import WinnerBanner from './WinnerBanner';
 import { AnimatedCountdown } from './ui/animated-countdown';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
+  // Parallax Hooks
+  const { scrollY } = useScroll();
+  const yHeroBg = useTransform(scrollY, [0, 1000], [0, 400]);
+  const yHeroContent = useTransform(scrollY, [0, 1000], [0, 200]);
+
   // CHANGE THIS DATE TO YOUR ACTUAL DRAW DATE
   const drawDate = new Date("September 5, 2026 18:00:00").getTime();
 
@@ -68,22 +73,34 @@ function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="hero" style={{ 
-        background: 'url(/hero.png) no-repeat center center',
-        backgroundSize: 'cover',
+      <section className="hero relative overflow-hidden" style={{ 
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-end',
         paddingBottom: '80px',
-        gridTemplateColumns: '1fr' // Override the grid template from CSS
+        gridTemplateColumns: '1fr', // Override the grid template from CSS
+        background: 'transparent'
       }}>
-        <a href="#join" className="primary-btn" style={{ fontSize: '1.3rem', padding: '18px 40px', boxShadow: '0 10px 25px rgba(0,0,0,0.6)', zIndex: 10 }}>
+        <motion.div 
+          className="absolute inset-0 z-0"
+          style={{ 
+            backgroundImage: 'url(/hero.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            y: yHeroBg 
+          }}
+        />
+        <motion.a 
+          href="#join" 
+          className="primary-btn relative z-10" 
+          style={{ fontSize: '1.3rem', padding: '18px 40px', boxShadow: '0 10px 25px rgba(0,0,0,0.6)', y: yHeroContent }}
+        >
           Enter the Lucky Draw →
-        </a>
+        </motion.a>
       </section>
 
       {/* COUNTDOWN */}
-      <section className="countdown-section py-14 px-[8%] bg-[var(--green)] text-white">
+      <section className="countdown-section py-14 px-[8%] bg-[var(--green)] text-white relative z-20">
         <div className="countdown-wrap max-w-[1150px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="countdown-text text-center lg:text-left">
             <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl lg:text-[40px] mb-2">The Grand Draw Begins Soon</h2>
@@ -99,7 +116,7 @@ function LandingPage() {
       </section>
 
       {/* PRIZES */}
-      <section className="prizes" id="prizes">
+      <section className="prizes relative z-20 bg-[var(--cream)]" id="prizes">
         <div className="section-header">
           <div className="section-tag">Exciting Rewards</div>
           <h2>What's Up for Grabs?</h2>
@@ -135,7 +152,7 @@ function LandingPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="how-it-works" id="how">
+      <section className="how-it-works relative z-20" id="how">
         <div className="section-header">
           <div className="section-tag">Simple & Easy</div>
           <h2>How It Works</h2>
