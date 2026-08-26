@@ -45,7 +45,7 @@ function LandingPage() {
           <img 
             src="/thimir.svg" 
             alt="Thimir" 
-            className="h-10 object-contain filter drop-shadow-sm"
+            className="h-14 object-contain filter drop-shadow-sm"
           />
         </a>
         
