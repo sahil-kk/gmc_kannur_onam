@@ -112,7 +112,7 @@ function LandingPage() {
              <span className="font-semibold tracking-[0.3em] text-xs md:text-sm mt-1 opacity-80">presents</span>
            </div>
            <p className="text-[#ffd878] font-['Libre_Caslon_Display'] tracking-[0.05em] text-2xl md:text-4xl mt-3 md:mt-5 relative z-30 opacity-95 drop-shadow-lg">
-             ONAM BUMPER 2026
+             Onam Bumper 2026
            </p>
         </div>
 
