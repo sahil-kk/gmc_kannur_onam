@@ -111,8 +111,8 @@ function LandingPage() {
              <span className="font-extrabold tracking-[0.15em] text-lg md:text-2xl leading-tight">UDSF GMCK</span>
              <span className="font-semibold tracking-[0.3em] text-xs md:text-sm mt-1 opacity-80">presents</span>
            </div>
-           <p className="text-[#ffd878] font-extrabold tracking-[0.2em] uppercase text-xl md:text-3xl mt-3 md:mt-5 relative z-30 opacity-95 drop-shadow-lg">
-             Onam Bumper 2026
+           <p className="text-[#ffd878] font-['Libre_Caslon_Display'] tracking-[0.05em] text-2xl md:text-4xl mt-3 md:mt-5 relative z-30 opacity-95 drop-shadow-lg">
+             ONAM BUMPER 2026
            </p>
         </div>
 
