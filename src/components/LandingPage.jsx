@@ -112,6 +112,9 @@ function LandingPage() {
              <span className="font-semibold tracking-[0.3em] text-[9px] md:text-[11px] mt-0.5 opacity-80">presents</span>
            </div>
            <img src="/thimir.svg" alt="Thimir" className="h-28 md:h-36 object-contain filter drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] scale-125 relative z-20" />
+           <p className="text-[#ffd878] font-bold tracking-[0.2em] uppercase text-xs md:text-sm mt-2 md:mt-4 relative z-30 opacity-90 drop-shadow-md">
+             Onam Bumper 2026
+           </p>
         </div>
 
         <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-20 relative z-10">
