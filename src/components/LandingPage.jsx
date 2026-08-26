@@ -111,7 +111,6 @@ function LandingPage() {
              <span className="font-extrabold tracking-[0.15em] text-sm md:text-lg leading-tight">UDSF GMCK</span>
              <span className="font-semibold tracking-[0.3em] text-[9px] md:text-[11px] mt-0.5 opacity-80">presents</span>
            </div>
-           <img src="/thimir.svg" alt="Thimir" className="h-28 md:h-36 object-contain filter drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] scale-125 relative z-20" />
            <p className="text-[#ffd878] font-bold tracking-[0.2em] uppercase text-xs md:text-sm mt-2 md:mt-4 relative z-30 opacity-90 drop-shadow-md">
              Onam Bumper 2026
            </p>
