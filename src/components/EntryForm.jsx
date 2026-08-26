@@ -107,30 +107,16 @@ function EntryForm() {
           <div className="bg-white p-4 rounded-2xl w-48 h-48 mx-auto mb-6 flex items-center justify-center">
             <img src="/upiqr.png" alt="UPI QR Code" className="w-full h-full object-contain rounded-xl" />
           </div>
-          <button 
-            type="button"
-            onClick={() => {
-              navigator.clipboard.writeText("info.moosashahin@okicici");
-              setIsCopied(true);
-              setTimeout(() => setIsCopied(false), 3000);
-            }}
+          <a 
+            href="upi://pay?pa=paytm.s3nizf7@pty&pn=GMC_Kannur&am=50&tn=Onam-Bumper&cu=INR"
             className="w-full bg-[#075b35] hover:bg-[#0a6b3e] text-white font-semibold py-3.5 px-6 rounded-2xl transition-all flex items-center justify-center gap-2 mb-4 shadow-md"
           >
-            {isCopied ? (
-              <>
-                <CheckCircle2 className="w-5 h-5 text-[#ffd878]" />
-                <span className="text-[#ffd878]">Copied!</span>
-              </>
-            ) : (
-              <>
-                <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                Copy UPI ID for GPay
-              </>
-            )}
-          </button>
+            <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+            Pay directly via UPI App
+          </a>
 
           <div className="text-sm font-medium text-[#ffd878] bg-[#ffd878]/10 py-2 px-4 rounded-full inline-block border border-[#ffd878]/20">
-            UPI: info.moosashahin@okicici
+            UPI: paytm.s3nizf7@pty
           </div>
         </div>
 
