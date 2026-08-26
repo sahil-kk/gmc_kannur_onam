@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '../lib/firebase';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
-import { collection, getDocs, doc, updateDoc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, getDoc, deleteDoc, setDoc } from 'firebase/firestore';
 
 function AdminPanel() {
   const [user, setUser] = useState(null);
@@ -9,6 +9,7 @@ function AdminPanel() {
   const [entries, setEntries] = useState([]);
   const [drawConfig, setDrawConfig] = useState(null);
   const [error, setError] = useState('');
+  const [confirmDialog, setConfirmDialog] = useState(null);
   
   // Login form state
   const [email, setEmail] = useState('');
@@ -76,28 +77,31 @@ function AdminPanel() {
   const pickWinnerRandomly = async () => {
     const paidEntries = entries.filter(e => e.status === 'paid');
     if (paidEntries.length === 0) {
-      alert("No verified paid entries to choose from!");
+      setError("No verified paid entries to choose from!");
       return;
     }
     const randomIndex = Math.floor(Math.random() * paidEntries.length);
     const winner = paidEntries[randomIndex];
-    await declareWinner(winner.id);
+    
+    setConfirmDialog({
+      title: "Declare Winner?",
+      message: `Are you sure you want to declare ${winner.name} as the winner? This will be announced publicly immediately.`,
+      onConfirm: async () => await declareWinner(winner.id)
+    });
   };
 
   const declareWinner = async (entryId) => {
-    if (window.confirm("Are you sure you want to declare this entry as the winner? This will be announced publicly immediately.")) {
-      try {
-        setLoading(true);
-        await updateDoc(doc(db, 'config', 'draw'), {
-          winner_entry_id: entryId,
-          is_draw_open: false,
-          winner_announced_at: new Date()
-        });
-        await loadAdminData();
-      } catch (err) {
-        setError('Failed to declare winner. ' + err.message);
-        setLoading(false);
-      }
+    try {
+      setLoading(true);
+      await setDoc(doc(db, 'config', 'draw'), {
+        winner_entry_id: entryId,
+        is_draw_open: false,
+        winner_announced_at: new Date()
+      }, { merge: true });
+      await loadAdminData();
+    } catch (err) {
+      setError('Failed to declare winner. ' + err.message);
+      setLoading(false);
     }
   };
 
@@ -108,19 +112,23 @@ function AdminPanel() {
       });
       await loadAdminData();
     } catch (err) {
-      alert("Error approving: " + err.message);
+      setError("Error approving: " + err.message);
     }
   };
 
   const handleReject = async (entryId) => {
-    if (window.confirm("Are you sure you want to reject and delete this entry? This action cannot be undone.")) {
-      try {
-        await deleteDoc(doc(db, 'entries', entryId));
-        await loadAdminData();
-      } catch (err) {
-        alert("Error rejecting: " + err.message);
+    setConfirmDialog({
+      title: "Reject Entry?",
+      message: "Are you sure you want to reject and delete this entry? This action cannot be undone.",
+      onConfirm: async () => {
+        try {
+          await deleteDoc(doc(db, 'entries', entryId));
+          await loadAdminData();
+        } catch (err) {
+          setError("Error rejecting: " + err.message);
+        }
       }
-    }
+    });
   };
 
   if (loading) {
@@ -353,6 +361,36 @@ function AdminPanel() {
           </div>
         </div>
       </main>
+
+      {/* Confirm Modal */}
+      {confirmDialog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full overflow-hidden border border-gray-100">
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{confirmDialog.title}</h3>
+              <p className="text-gray-500 mb-6">{confirmDialog.message}</p>
+              <div className="flex gap-3 justify-end">
+                <button 
+                  onClick={() => setConfirmDialog(null)}
+                  className="px-5 py-2.5 rounded-xl font-semibold text-gray-600 hover:bg-gray-100 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button 
+                  onClick={async () => {
+                    const action = confirmDialog.onConfirm;
+                    setConfirmDialog(null);
+                    await action();
+                  }}
+                  className="px-5 py-2.5 rounded-xl font-bold text-white bg-green-600 hover:bg-green-700 shadow-md transition-colors"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
