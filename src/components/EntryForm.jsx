@@ -108,7 +108,7 @@ function EntryForm() {
           </div>
           
           <a 
-            href="tez://upi/pay?pa=info.moosashahin@okicici&pn=Moosa_Shahin&am=50&tn=Onam-Bumper-2026"
+            href="tez://upi/pay?pa=info.moosashahin@okicici&pn=Moosa_Shahin"
             className="w-full bg-[#075b35] hover:bg-[#0a6b3e] text-white font-semibold py-3.5 px-6 rounded-2xl transition-all flex items-center justify-center gap-2 mb-4 shadow-md"
           >
             <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
