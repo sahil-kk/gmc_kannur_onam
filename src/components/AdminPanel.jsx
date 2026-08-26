@@ -10,6 +10,7 @@ function AdminPanel() {
   const [drawConfig, setDrawConfig] = useState(null);
   const [error, setError] = useState('');
   const [confirmDialog, setConfirmDialog] = useState(null);
+  const [winnerModal, setWinnerModal] = useState(null);
   
   // Login form state
   const [email, setEmail] = useState('');
@@ -83,26 +84,44 @@ function AdminPanel() {
     const randomIndex = Math.floor(Math.random() * paidEntries.length);
     const winner = paidEntries[randomIndex];
     
-    setConfirmDialog({
-      title: "Declare Winner?",
-      message: `Are you sure you want to declare ${winner.name} as the winner? This will be announced publicly immediately.`,
-      onConfirm: async () => await declareWinner(winner.id)
-    });
+    await declareWinner(winner);
   };
 
-  const declareWinner = async (entryId) => {
+  const declareWinner = async (winner) => {
     try {
       setLoading(true);
       await setDoc(doc(db, 'config', 'draw'), {
-        winner_entry_id: entryId,
+        winner_entry_id: winner.id,
         is_draw_open: false,
         winner_announced_at: new Date()
       }, { merge: true });
       await loadAdminData();
+      setWinnerModal(winner);
     } catch (err) {
       setError('Failed to declare winner. ' + err.message);
       setLoading(false);
     }
+  };
+
+  const resetWinner = async () => {
+    setConfirmDialog({
+      title: "Reset Winner?",
+      message: "Are you sure you want to reset the current winner? The draw will be open again.",
+      onConfirm: async () => {
+        try {
+          setLoading(true);
+          await setDoc(doc(db, 'config', 'draw'), {
+            winner_entry_id: null,
+            is_draw_open: true,
+            winner_announced_at: null
+          }, { merge: true });
+          await loadAdminData();
+        } catch (err) {
+          setError('Failed to reset winner. ' + err.message);
+          setLoading(false);
+        }
+      }
+    });
   };
 
   const handleApprove = async (entryId) => {
@@ -247,9 +266,17 @@ function AdminPanel() {
               </button>
               
               {drawConfig?.winner_entry_id && (
-                <div className="flex items-center gap-2 text-green-700 bg-green-50 px-6 py-4 rounded-xl font-bold border border-green-200">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  Winner Declared!
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 text-green-700 bg-green-50 px-6 py-4 rounded-xl font-bold border border-green-200">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Winner Declared!
+                  </div>
+                  <button 
+                    onClick={resetWinner}
+                    className="text-sm text-red-600 hover:text-red-700 hover:underline font-semibold text-center"
+                  >
+                    Reset Winner
+                  </button>
                 </div>
               )}
             </div>
@@ -387,6 +414,36 @@ function AdminPanel() {
                   Confirm
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Winner Celebration Modal */}
+      {winnerModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-300">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden border border-gray-100 animate-in zoom-in-95 duration-500 relative">
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-[#ffd878] to-[#e6ae35] opacity-20"></div>
+            <div className="p-8 text-center relative z-10">
+              <div className="w-24 h-24 bg-gradient-to-r from-[#ffd878] to-[#e6ae35] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-4 border-white">
+                <svg className="w-12 h-12 text-[#3a2500]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              </div>
+              <h2 className="text-3xl font-black text-[#075b35] mb-2 uppercase tracking-wide">Congratulations!</h2>
+              <p className="text-gray-500 text-lg mb-6">The grand prize winner is</p>
+              
+              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 mb-8 inline-block w-full">
+                <div className="text-2xl font-bold text-gray-900 mb-1">{winnerModal.name}</div>
+                <div className="text-gray-500 font-mono bg-white px-4 py-2 rounded-lg inline-block border border-gray-200 shadow-sm mt-2">
+                  {winnerModal.coupon_code}
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setWinnerModal(null)}
+                className="w-full bg-[#075b35] hover:bg-[#0a6b3e] text-white font-bold py-4 rounded-xl shadow-md transition-colors"
+              >
+                Close Window
+              </button>
             </div>
           </div>
         </div>
