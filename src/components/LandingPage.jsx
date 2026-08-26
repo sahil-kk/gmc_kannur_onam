@@ -36,7 +36,7 @@ function LandingPage() {
         }`}
       >
         {/* LOGO */}
-        <a href="#" className="flex items-center hover:scale-105 transition-transform duration-300 z-50">
+        <a href="#" className="flex items-center hover:scale-105 transition-transform duration-300 z-50 no-underline">
           <img 
             src="/favicon.png" 
             alt="Logo" 
@@ -46,13 +46,13 @@ function LandingPage() {
         
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#prizes" className={`font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
+          <a href="#prizes" className={`no-underline font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
             Prizes
           </a>
-          <a href="#how" className={`font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
+          <a href="#how" className={`no-underline font-semibold text-sm tracking-wide uppercase transition-colors hover:text-[var(--gold)] ${isScrolled ? 'text-gray-800' : 'text-white/90'}`}>
             How it Works
           </a>
-          <a href="#join" className="bg-[var(--gold)] text-[#3a2500] px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#ffd878] hover:scale-105 transition-all shadow-md">
+          <a href="#join" className="no-underline bg-[var(--gold)] text-[#3a2500] px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#ffd878] hover:scale-105 transition-all shadow-md">
             Join Draw
           </a>
         </div>
@@ -77,13 +77,13 @@ function LandingPage() {
               transition={{ duration: 0.2 }}
               className="absolute top-0 left-0 w-full bg-white shadow-2xl flex flex-col items-center pt-24 pb-10 gap-6 z-40 border-b-4 border-[var(--gold)]"
             >
-              <a href="#prizes" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl uppercase tracking-wider">
+              <a href="#prizes" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-gray-800 font-bold text-xl uppercase tracking-wider">
                 Prizes
               </a>
-              <a href="#how" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl uppercase tracking-wider">
+              <a href="#how" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-gray-800 font-bold text-xl uppercase tracking-wider">
                 How it Works
               </a>
-              <a href="#join" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[var(--gold)] text-[#3a2500] px-8 py-3.5 rounded-full font-extrabold text-lg uppercase tracking-wider shadow-lg">
+              <a href="#join" onClick={() => setIsMobileMenuOpen(false)} className="no-underline mt-4 bg-[var(--gold)] text-[#3a2500] px-8 py-3.5 rounded-full font-extrabold text-lg uppercase tracking-wider shadow-lg">
                 Join Draw
               </a>
             </motion.div>
@@ -119,7 +119,7 @@ function LandingPage() {
               Celebrate the festival of joy, prosperity, and togetherness. Enter now for a chance to win spectacular prizes!
             </p>
             
-            <a href="#join" className="primary-btn inline-block hover:scale-105" style={{ 
+            <a href="#join" className="primary-btn inline-block hover:scale-105 no-underline" style={{ 
               fontSize: '1.2rem', 
               padding: '18px 45px', 
               boxShadow: '0 15px 35px rgba(0,0,0,0.35)',
