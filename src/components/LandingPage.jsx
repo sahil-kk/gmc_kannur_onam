@@ -108,10 +108,10 @@ function LandingPage() {
         {/* TOP SPONSOR LOGO */}
         <div className="relative z-20 flex flex-col items-center text-center w-full mb-[-20px] md:mb-[-60px] mt-4 md:mt-0">
            <div className="text-[#ffd878] drop-shadow-md mb-2 opacity-90 relative z-30 uppercase text-center flex flex-col items-center">
-             <span className="font-extrabold tracking-[0.15em] text-sm md:text-lg leading-tight">UDSF GMCK</span>
-             <span className="font-semibold tracking-[0.3em] text-[9px] md:text-[11px] mt-0.5 opacity-80">presents</span>
+             <span className="font-extrabold tracking-[0.15em] text-lg md:text-2xl leading-tight">UDSF GMCK</span>
+             <span className="font-semibold tracking-[0.3em] text-xs md:text-sm mt-1 opacity-80">presents</span>
            </div>
-           <p className="text-[#ffd878] font-bold tracking-[0.2em] uppercase text-xs md:text-sm mt-2 md:mt-4 relative z-30 opacity-90 drop-shadow-md">
+           <p className="text-[#ffd878] font-extrabold tracking-[0.2em] uppercase text-xl md:text-3xl mt-3 md:mt-5 relative z-30 opacity-95 drop-shadow-lg">
              Onam Bumper 2026
            </p>
         </div>
