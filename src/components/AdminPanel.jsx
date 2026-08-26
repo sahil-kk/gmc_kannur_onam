@@ -266,15 +266,16 @@ function AdminPanel() {
               </button>
               
               {drawConfig?.winner_entry_id && (
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-green-700 bg-green-50 px-6 py-4 rounded-xl font-bold border border-green-200">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <div className="flex items-center gap-2 text-green-700 bg-green-50 px-6 py-4 rounded-xl font-bold border border-green-200 shadow-sm">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Winner Declared!
                   </div>
                   <button 
                     onClick={resetWinner}
-                    className="text-sm text-red-600 hover:text-red-700 hover:underline font-semibold text-center"
+                    className="flex items-center gap-2 bg-red-50 text-red-600 hover:bg-red-600 hover:text-white font-bold px-6 py-4 rounded-xl border border-red-200 hover:border-red-600 shadow-sm hover:shadow-md transition-all"
                   >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     Reset Winner
                   </button>
                 </div>
