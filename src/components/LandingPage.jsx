@@ -97,7 +97,7 @@ function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-32 pb-16 px-6 lg:px-16" style={{
+      <section className="relative overflow-hidden w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-6 lg:px-16" style={{
         backgroundImage: `
           radial-gradient(rgba(0, 0, 0, 0.25) 1.5px, transparent 1.5px),
           radial-gradient(circle at center, #7A161E 0%, #3B0A0E 70%, #240407 100%)
@@ -106,7 +106,7 @@ function LandingPage() {
       }}>
         
         {/* TOP SPONSOR LOGO */}
-        <div className="relative z-20 flex flex-col items-center text-center w-full mb-0 md:-mb-8 mt-8 md:mt-12">
+        <div className="relative z-20 flex flex-col items-center text-center w-full mb-[-20px] md:mb-[-60px] mt-4 md:mt-0">
            <div className="text-[#ffd878] drop-shadow-md mb-2 opacity-90 relative z-30 uppercase text-center flex flex-col items-center">
              <span className="font-extrabold tracking-[0.15em] text-sm md:text-lg leading-tight">UDSF GMCK</span>
              <span className="font-semibold tracking-[0.3em] text-[9px] md:text-[11px] mt-0.5 opacity-80">presents</span>
