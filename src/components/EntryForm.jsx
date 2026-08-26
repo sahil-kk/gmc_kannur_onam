@@ -108,15 +108,15 @@ function EntryForm() {
             <img src="/upiqr.png" alt="UPI QR Code" className="w-full h-full object-contain rounded-xl" />
           </div>
           <a 
-            href="tez://upi/pay?pa=paytm.s3nizf7@pty&pn=GMC_Kannur&mc=5499&mode=02&purpose=00&am=50&tn=Onam-Bumper&cu=INR"
+            href="tez://upi/pay?pa=BHARATPE09Z9J1F8L2M84938@yesbankltd&pn=GMC_Kannur&mc=5499&mode=02&purpose=00&am=50&tn=Onam-Bumper&cu=INR"
             className="w-full bg-[#075b35] hover:bg-[#0a6b3e] text-white font-semibold py-3.5 px-6 rounded-2xl transition-all flex items-center justify-center gap-2 mb-4 shadow-md"
           >
             <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
             Pay directly with GPay
           </a>
 
-          <div className="text-sm font-medium text-[#ffd878] bg-[#ffd878]/10 py-2 px-4 rounded-full inline-block border border-[#ffd878]/20">
-            UPI: paytm.s3nizf7@pty
+          <div className="text-sm font-medium text-[#ffd878] bg-[#ffd878]/10 py-2 px-4 rounded-full inline-block border border-[#ffd878]/20 break-all mx-2">
+            UPI: BHARATPE09Z9J1F8L2M84938@yesbankltd
           </div>
         </div>
 
