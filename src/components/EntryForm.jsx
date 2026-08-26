@@ -13,6 +13,7 @@ function EntryForm() {
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isCopied, setIsCopied] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -110,12 +111,22 @@ function EntryForm() {
             type="button"
             onClick={() => {
               navigator.clipboard.writeText("info.moosashahin@okicici");
-              alert("UPI ID copied to clipboard! Paste it into GPay to complete the payment.");
+              setIsCopied(true);
+              setTimeout(() => setIsCopied(false), 3000);
             }}
             className="w-full bg-[#075b35] hover:bg-[#0a6b3e] text-white font-semibold py-3.5 px-6 rounded-2xl transition-all flex items-center justify-center gap-2 mb-4 shadow-md"
           >
-            <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-            Copy UPI ID for GPay
+            {isCopied ? (
+              <>
+                <CheckCircle2 className="w-5 h-5 text-[#ffd878]" />
+                <span className="text-[#ffd878]">Copied!</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-5 h-5 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                Copy UPI ID for GPay
+              </>
+            )}
           </button>
 
           <div className="text-sm font-medium text-[#ffd878] bg-[#ffd878]/10 py-2 px-4 rounded-full inline-block border border-[#ffd878]/20">
