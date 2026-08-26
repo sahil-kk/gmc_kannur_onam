@@ -53,21 +53,21 @@ const UNIT_LABELS: Record<CountdownUnitKey, string> = {
 
 const variantClasses: Record<CountdownVariant, string> = {
   modern:
-    "border-border/70 bg-background/75 shadow-2xl shadow-primary/5 backdrop-blur-xl dark:bg-white/[0.035]",
+    "border-border/70 bg-background/75 shadow-2xl shadow-primary/5 backdrop-blur-xl",
   digital:
     "border-cyan-400/20 bg-zinc-950 text-white shadow-2xl shadow-cyan-500/10",
   minimal: "border-transparent bg-transparent shadow-none",
-  classic: "border-border bg-card shadow-sm dark:bg-zinc-900/80",
+  classic: "border-border bg-card shadow-sm",
 };
 
 const unitVariantClasses: Record<CountdownVariant, string> = {
   modern:
-    "border-border/70 bg-muted/45 shadow-sm transition hover:border-primary/35 hover:bg-muted/65 hover:shadow-primary/10 dark:bg-white/[0.04]",
+    "border-border/70 bg-muted/45 shadow-sm transition hover:border-primary/35 hover:bg-muted/65 hover:shadow-primary/10",
   digital:
     "border-cyan-400/20 bg-cyan-400/[0.055] font-mono shadow-[0_0_28px_-18px_rgba(34,211,238,0.9)] transition hover:border-cyan-300/40 hover:bg-cyan-400/[0.09]",
   minimal: "border-transparent bg-transparent transition hover:bg-muted/35",
   classic:
-    "border-border bg-background shadow-sm transition hover:border-primary/30 hover:bg-muted/35 dark:bg-white/[0.035]",
+    "border-border bg-background shadow-sm transition hover:border-primary/30 hover:bg-muted/35",
 };
 
 const sizeClasses: Record<CountdownSize, { container: string; unit: string; number: string; label: string }> = {

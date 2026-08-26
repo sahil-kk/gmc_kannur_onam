@@ -160,7 +160,10 @@ function LandingPage() {
             targetDate={drawDate} 
             variant="modern" 
             size="lg" 
-            className="shadow-2xl"
+            className="shadow-2xl bg-white/15 border-white/20 backdrop-blur-md"
+            unitClassName="bg-white border-white/30 hover:bg-white hover:border-white/50 shadow-md"
+            numberClassName="text-[#043d25] font-extrabold"
+            labelClassName="text-[#e96f24] font-bold tracking-widest"
           />
         </div>
       </section>
