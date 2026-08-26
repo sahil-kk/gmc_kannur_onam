@@ -208,7 +208,7 @@ function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-[1250px] mx-auto items-center relative z-10">
           
           {/* 2ND PRIZE */}
-          <div className="bg-gradient-to-br from-[#075b35] via-[#043d25] to-[#021f12] rounded-[2rem] p-8 lg:p-10 relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 shadow-[0_15px_40px_rgba(7,91,53,0.3)] border border-[#ffd878]/20 flex flex-col h-full min-h-[320px]">
+          <div className="order-2 md:order-1 bg-gradient-to-br from-[#075b35] via-[#043d25] to-[#021f12] rounded-[2rem] p-8 lg:p-10 relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 shadow-[0_15px_40px_rgba(7,91,53,0.3)] border border-[#ffd878]/20 flex flex-col h-full min-h-[320px]">
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
             <div className="absolute top-2 right-4 text-[120px] leading-none font-black text-white/15 font-['Cinzel'] pointer-events-none group-hover:scale-105 group-hover:rotate-3 transition-transform duration-700">02</div>
             
@@ -220,7 +220,7 @@ function LandingPage() {
           </div>
 
           {/* 1ST PRIZE (FEATURED) */}
-          <div className="bg-gradient-to-br from-[#7A161E] via-[#520d14] to-[#240407] rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group hover:-translate-y-4 transition-all duration-500 shadow-[0_25px_60px_rgba(122,22,30,0.35)] border border-[#ffd878]/30 flex flex-col h-full min-h-[380px] md:scale-105 z-20">
+          <div className="order-1 md:order-2 bg-gradient-to-br from-[#7A161E] via-[#520d14] to-[#240407] rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group hover:-translate-y-4 transition-all duration-500 shadow-[0_25px_60px_rgba(122,22,30,0.35)] border border-[#ffd878]/30 flex flex-col h-full min-h-[380px] md:scale-105 z-20">
             {/* Inner Glow */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
             <div className="absolute top-4 right-6 text-[150px] leading-none font-black text-white/15 font-['Cinzel'] pointer-events-none group-hover:scale-105 group-hover:rotate-3 transition-all duration-700">01</div>
@@ -239,7 +239,7 @@ function LandingPage() {
           </div>
 
           {/* 3RD PRIZE */}
-          <div className="bg-gradient-to-br from-[#075b35] via-[#043d25] to-[#021f12] rounded-[2rem] p-8 lg:p-10 relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 shadow-[0_15px_40px_rgba(7,91,53,0.3)] border border-[#ffd878]/20 flex flex-col h-full min-h-[320px]">
+          <div className="order-3 bg-gradient-to-br from-[#075b35] via-[#043d25] to-[#021f12] rounded-[2rem] p-8 lg:p-10 relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 shadow-[0_15px_40px_rgba(7,91,53,0.3)] border border-[#ffd878]/20 flex flex-col h-full min-h-[320px]">
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
             <div className="absolute top-2 right-4 text-[120px] leading-none font-black text-white/15 font-['Cinzel'] pointer-events-none group-hover:scale-105 group-hover:-rotate-3 transition-transform duration-700">03</div>
             
