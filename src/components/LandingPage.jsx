@@ -59,8 +59,8 @@ function LandingPage() {
         
         {/* MOBILE BURGER */}
         <button 
-          className={`md:hidden p-2 rounded-full transition-colors z-50 ${
-            isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+          className={`md:hidden bg-transparent border-none outline-none focus:outline-none shadow-none appearance-none transition-colors z-50 ${
+            isScrolled ? 'text-gray-800' : 'text-white'
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
