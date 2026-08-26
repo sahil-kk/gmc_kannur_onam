@@ -12,9 +12,10 @@ service cloud.firestore {
     }
 
     match /entries/{entryId} {
-      allow get: if true; // Allows anyone with the ID to listen for updates (for receipt generation)
+      allow get: if true; 
       allow list: if isAdmin();
-      allow write: if isAdmin(); // Clients cannot write directly, only Cloud Functions can
+      allow create: if true;
+      allow update, delete: if isAdmin(); 
     }
     
     match /admins/{uid} {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Raleway:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;600;700&family=Julius+Sans+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -306,195 +306,11 @@ body {
     text-transform: uppercase;
 }
 
-/* PRIZES */
+/* PRIZES (REPLACED BY TAILWIND) */
 
-.prizes {
-    padding: 110px 8%;
-}
+/* HOW IT WORKS (REPLACED BY TAILWIND) */
 
-.section-header {
-    text-align: center;
-    max-width: 650px;
-    margin: auto auto 55px;
-}
-
-.section-tag {
-    color: var(--orange);
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.section-header h2 {
-    font-family: "Playfair Display", serif;
-    color: var(--green);
-    font-size: 48px;
-    margin: 10px 0 14px;
-}
-
-.section-header p {
-    color: #63756b;
-    line-height: 1.7;
-}
-
-.prize-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1150px;
-    margin: auto;
-}
-
-.prize-card {
-    background: white;
-    padding: 35px 30px;
-    border-radius: 25px;
-    transition: 0.3s;
-    border: 1px solid #f1e8d4;
-}
-
-.prize-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(17, 74, 44, 0.1);
-}
-
-.prize-card.featured {
-    background: var(--green);
-    color: white;
-    transform: scale(1.04);
-}
-
-.prize-card.featured:hover {
-    transform: scale(1.04) translateY(-8px);
-}
-
-.prize-number {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    background: #fff0cb;
-    color: var(--orange);
-    font-weight: 800;
-    margin-bottom: 25px;
-}
-
-.featured .prize-number {
-    background: rgba(255,255,255,0.12);
-    color: var(--light-gold);
-}
-
-.prize-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.prize-card p {
-    color: #738178;
-    line-height: 1.6;
-    font-size: 16px;
-}
-
-.featured p {
-    color: rgba(255,255,255,0.7);
-}
-
-.prize-value {
-    margin-top: 25px;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--orange);
-}
-
-.featured .prize-value {
-    color: var(--light-gold);
-}
-
-/* HOW IT WORKS */
-
-.how-it-works {
-    padding: 100px 8%;
-    background: #f6efd9;
-}
-
-.steps {
-    max-width: 1000px;
-    margin: 50px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 55px;
-}
-
-.step {
-    text-align: center;
-    position: relative;
-}
-
-.step-icon {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    margin: auto auto 22px;
-    background: var(--green);
-    color: var(--light-gold);
-    font-size: 28px;
-}
-
-.step h3 {
-    color: var(--green);
-    margin-bottom: 10px;
-}
-
-.step p {
-    color: #6b786f;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-/* CTA */
-
-.final-cta {
-    padding: 110px 8%;
-}
-
-.cta-box {
-    max-width: 1100px;
-    margin: auto;
-    background:
-        radial-gradient(circle at top right, rgba(255,216,120,0.18), transparent 30%),
-        var(--green);
-    color: white;
-    border-radius: 35px;
-    padding: 70px 8%;
-    text-align: center;
-}
-
-.cta-box h2 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(35px, 5vw, 60px);
-    margin-bottom: 16px;
-}
-
-.cta-box p {
-    max-width: 600px;
-    margin: auto auto 30px;
-    opacity: 0.75;
-    line-height: 1.7;
-}
-
-.cta-box .primary-btn {
-    background: var(--gold);
-    color: #4a3500;
-    box-shadow: none;
-}
-
-.cta-box .primary-btn:hover {
-    background: var(--light-gold);
-}
+/* CTA (REPLACED BY TAILWIND) */
 
 /* FOOTER */
 
@@ -603,43 +419,7 @@ footer p {
 }
 
 /* Forms Additions for EntryForm component */
-.form-group {
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
-
-.form-label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  opacity: 0.9;
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  background-color: rgba(255,255,255,0.1);
-  color: white;
-}
-.form-input::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-.form-input:focus {
-  outline: none;
-  border-color: var(--gold);
-  background-color: rgba(255,255,255,0.15);
-}
-
-.entry-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
+/* ENTRY FORM (REPLACED BY TAILWIND) */
 
 .winner-banner {
   background: var(--gold);
