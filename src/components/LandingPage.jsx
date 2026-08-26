@@ -106,7 +106,7 @@ function LandingPage() {
       }}>
         
         {/* TOP SPONSOR LOGO */}
-        <div className="relative z-20 flex flex-col items-center text-center w-full mb-0 md:-mb-8 mt-4 md:mt-0">
+        <div className="relative z-20 flex flex-col items-center text-center w-full mb-8 md:mb-12 mt-4 md:mt-0">
            <div className="text-[#ffd878] drop-shadow-md mb-2 opacity-90 relative z-30 uppercase text-center flex flex-col items-center">
              <span className="font-extrabold tracking-[0.15em] text-lg md:text-2xl leading-tight">UDSF GMCK</span>
              <span className="font-semibold tracking-[0.3em] text-xs md:text-sm mt-1 opacity-80">presents</span>
