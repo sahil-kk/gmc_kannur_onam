@@ -36,11 +36,16 @@ function LandingPage() {
         }`}
       >
         {/* LOGO */}
-        <a href="#" className="flex items-center hover:scale-105 transition-transform duration-300 z-50 no-underline">
+        <a href="#" className="flex items-center gap-3 hover:scale-105 transition-transform duration-300 z-50 no-underline">
           <img 
             src="/favicon.png" 
             alt="Logo" 
             className="w-12 h-12 object-contain filter drop-shadow-md"
+          />
+          <img 
+            src="/thimir.svg" 
+            alt="Thimir" 
+            className="h-8 object-contain filter drop-shadow-sm"
           />
         </a>
         
