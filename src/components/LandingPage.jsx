@@ -45,7 +45,7 @@ function LandingPage() {
           <img 
             src="/thimir.svg" 
             alt="Thimir" 
-            className="h-14 object-contain filter drop-shadow-sm"
+            className="h-20 object-contain filter drop-shadow-sm"
           />
         </a>
         
@@ -97,13 +97,23 @@ function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden w-full min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 pb-16 px-6 lg:px-16" style={{
+      <section className="relative overflow-hidden w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-32 pb-16 px-6 lg:px-16" style={{
         backgroundImage: `
           radial-gradient(rgba(0, 0, 0, 0.25) 1.5px, transparent 1.5px),
           radial-gradient(circle at center, #7A161E 0%, #3B0A0E 70%, #240407 100%)
         `,
         backgroundSize: '6px 6px, 100% 100%'
       }}>
+        
+        {/* TOP SPONSOR LOGO */}
+        <div className="relative z-20 flex flex-col items-center text-center w-full mb-0 md:-mb-8 mt-8 md:mt-12">
+           <div className="text-[#ffd878] drop-shadow-md mb-2 opacity-90 relative z-30 uppercase text-center flex flex-col items-center">
+             <span className="font-extrabold tracking-[0.15em] text-sm md:text-lg leading-tight">UDSF GMCK</span>
+             <span className="font-semibold tracking-[0.3em] text-[9px] md:text-[11px] mt-0.5 opacity-80">presents</span>
+           </div>
+           <img src="/thimir.svg" alt="Thimir" className="h-28 md:h-36 object-contain filter drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] scale-125 relative z-20" />
+        </div>
+
         <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-20 relative z-10">
           
           {/* LEFT SIDE: Text */}
@@ -111,6 +121,7 @@ function LandingPage() {
             className="flex flex-col items-center md:items-start text-center md:text-left text-white order-2 md:order-1"
             style={{ y: yHeroContent }}
           >
+            
             <div className="flex flex-col items-center md:items-start mb-8">
               <span className="font-['Great_Vibes'] text-6xl md:text-8xl text-[#ffd878] drop-shadow-xl transform -rotate-3 mb-[-15px] md:mb-[-30px] md:ml-8 z-10">
                 Happy
