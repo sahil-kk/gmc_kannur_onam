@@ -214,7 +214,7 @@ function LandingPage() {
             
             <div className="relative z-10 flex-grow">
               <div className="bg-white/10 border border-[#ffd878]/30 text-[#ffd878] font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full inline-flex mb-6 backdrop-blur-sm">Second Prize</div>
-              <h3 className="text-white text-2xl lg:text-3xl font-bold mb-4 leading-tight drop-shadow-md">20,000 mAh Powerbank</h3>
+              <h3 className="text-white text-2xl lg:text-3xl font-bold mb-4 leading-tight drop-shadow-md">10,000 mAh Powerbank</h3>
               <p className="text-white/70 leading-relaxed">Keep your devices fully charged and ready for all the Onam festivities without missing a beat.</p>
             </div>
           </div>
